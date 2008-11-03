@@ -1,0 +1,8 @@
+Adicionar um header com a licença a todos os ficheiros existentes de código.
+Completar convenções
+Criar diagramas e documentação de apoio que se julgar necessária.
+Configurar o sistema de testes de unidade, simpletest, http://www.simpletest.org/.
+Encontrar imagens e outros ficheiros que possam ser usados pelo projecto
+    @Knitter: Ver pastas de ícones GPL.
+Adicionar contactos, criar fontes de contacto no P@P, falar com o HecKel sobre 
+ter uma página de apresentação e um email.

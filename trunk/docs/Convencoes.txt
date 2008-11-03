@@ -1,0 +1,57 @@
+NOTA: Este documento é apenas um rascunho que necessita de discussão.
+Nada aqui presente será considerado como definitivo.
+
+===== Convenções Gerais =====
+As linhas de código não deverão ter mais de 80 caracteres. Embora sejam permitidas 
+linhas maiores, serve o número como referência para que as linhas sejam o mais 
+uniformes possível.
+
+Todos métodos deverão ser comentados, não devem ser submetido código que não 
+tenha sido documentado.
+
+===== Convenções de Documentação =====
+    Toda a documentação deverá ser escrita em Português.
+    
+===== Convenções de Código =====
+1. Geral
+    Identação composta por 4 espaços e não tabs.
+    O editor deverá estar configurado para UTF-8 com delimitadores de linha unix, '\n'.
+
+2. Nomenclatura: Ficheiro, classes, funções e variáveis
+    Utilizar camel case e não underscores.
+    Variáveis que representem vectores deverão ser colocadas no plurarl, restantes 
+    deverão ser no singular.
+
+3. Comentários
+    Estilo PHPDoc.
+        http://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_phpDocumentor.quickstart.pkg.html
+    Os comentários especiais indicados abaixo devem ser colocados quando adequado 
+    usando o comentário de linha. Deverão ser curtos e consisos.
+    
+    TODO:
+    Indicação de tarefa pendente.
+    
+    NOTE:
+    Indicação de nota importante sobre a linha ou bloco de código seguinte.
+    
+    BUG:
+    Indicação de erro conhecido. Caso seja possível deve ser indicado o link para 
+    um local de dicussão do erro ou código do relatório de erro do sistema usado 
+    pela equipa.
+
+4. Estrutura do código
+    As linhas devem ser quebras por volta da coluna 80. O valor não é restritivo 
+    mas deve ser seguido.
+    As strings devem ser delimitadas por plicas, '.
+    Todas as funções e variáveis devem ter a sua visibilidade explicitamente indicada.
+    Os operadores devem conter um espaço antes e um depois.
+    Ao serem quebradas, as linhas devem sê-lo após os operadores.
+    Não devem ser usados overload dos métodos especiais __get e __set
+
+5. Outros
+    O uso de parentisis em operadores ternários fica à descrição do programador.
+    É no entanto aconselhado que seja usados parentisis apenas quando se torna 
+    mais simples a leitura do código.
+    
+===== Exemplos =====
+
