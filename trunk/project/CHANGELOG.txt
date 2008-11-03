@@ -1,3 +1,0 @@
-@27-09-2008
-Inicio da criação de documentação, linhas orientadoras para o desenvolvimento e 
-estrutura base do sistema.
