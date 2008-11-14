@@ -3,6 +3,8 @@ class Users extends Controller {
 	
 	function index()
 	{
+		/* trabalhar paginação */
+		
 		$data['title'] 		= "Pintassilgo";
 		$data['heading'] 	= "Pintassilgo - Ver users";
 		
@@ -15,17 +17,21 @@ class Users extends Controller {
 
 		$config['base_url'] = 'index.php/users/';
 		$config['total_rows'] = $query->num_rows();
-		$config['per_page'] = '1';
+		$config['per_page'] = '20';
 
 		$this->pagination->initialize($config); 
 
 		$data['pagination'] = $this->pagination->create_links();
+		
 		$this->load->helper('html');
+		
 		$this->load->view('users_all', $data);
 	}
 	
 	function new_user()
 	{
+		/* fazer validações de segurança */
+		
 		$this->user 		= $_POST['username'];
 		$this->nick 		= $_POST['nick'];
 		$this->pass1 		= $_POST['pass1'];

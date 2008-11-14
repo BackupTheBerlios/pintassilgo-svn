@@ -403,15 +403,15 @@ form {
 <div align='center'><table><tr>
 <td></td><td width='220px'>Username</td> <td width='220px'>Email</td> <td width='220px'>URL</td> <td>Data Registo</td></tr>
 <tr></tr><tr></tr>
-<?
-foreach ($dados as $row) {
-	echo "<td><a href='' target='self'>".img('images/no.gif')."</a></td>";
+<? foreach ($dados as $row) {
+	echo "<tr>";
+	echo "<td><a href='index.php/users/remove_user/".$row['ID']."' target='self'>".img('images/no.gif')."</a></td>";
     echo "<td>" .$row['nick']. "</td>";
     echo "<td>" .$row['mail']. "</td>";
     echo "<td>" .$row['url']. "</td>";
-    echo "<td>" .$row['data']. "</td>";    			
-}
-?>
+    echo "<td>" .$row['data']. "</td>";
+    echo "</tr>";	
+} ?>
 </table></div>
 <? echo $pagination; ?>
 </body>
