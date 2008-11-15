@@ -46,9 +46,8 @@ class Users extends Controller {
 		$this->data_nasc	= $_POST['dia'] ."-".$_POST['mes']."-".$_POST['ano'];
 		$this->areas 		= $_POST['areas'];
 		$this->data			= date('d-m-Y');
-
-		$query = $this->db->query("INSERT INTO `pintassilgo` (`ID`, `nick`, `password`, `mail`, `url`, `data_nasc`, `areas`)
-		VALUES (NULL, '".$this->nick."', '".$this->pass."', '".$this->mail."', '".$this->blog_url."', '".$this->data_nasc."', '".$this->areas."', '".$this->data."')");
+		
+		$query = $this->db->query($this->dbstatements->ps_insert_newuser, array($this->nick, $this->pass, $this->mail, $this->blog_url, $this->data_nasc, $this->areas, $this->data));
 
 		$mensagem = "O utilizador ". $this->nick ." foi introduzido com sucesso na base de dados.";
 		
