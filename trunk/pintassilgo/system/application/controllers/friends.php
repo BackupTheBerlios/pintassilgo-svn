@@ -13,7 +13,6 @@ class Friends extends Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->database();
         $this->load->library('dbstatements');
     }
 
@@ -24,8 +23,6 @@ class Friends extends Controller {
     function add_friend($user, $friend_id) {
 
         if ( $user == $friend_id ) {
-            //$this->load->helper(url);
-            //redirect('/friends/');
             $this->index();
         }
 
@@ -35,15 +32,12 @@ class Friends extends Controller {
 
         // Maybe it would be a good idea to add a friend to the list
         // and sort that list before inserting to DB
-
         $this->db->query($this->dbstatements->ps_add_friends, array($user, $users.';'.$friend_id));
-        
+
     }
 
     function remove_friend($user, $friend_id) {
         if ( $user == $friend_id ) {
-            //$this->load->helper(url);
-            //redirect('/friends/');
             $this->index();
         }
 
@@ -52,8 +46,6 @@ class Friends extends Controller {
         $users = $result->row();
 
         $users = split(";",$users);
-
     }
-
 }
 ?>

@@ -5,7 +5,6 @@ class sessions {
 	{
 		/* verificação segurança */
 		$senha = md5($password);
-		$this->load->database();
 		$query = $this->db->query("SELECT * FROM `users` WHERE `mail` = '$email' AND `password` = '$senha' LIMIT 1");
 		
 		if($query->num_rows() > 0)
@@ -34,7 +33,6 @@ class sessions {
 			$login = $_SESSION["login_user"];
 			$pass = $_SESSION["password_user"];
 			
-			$this->load->database();
 			$query = $this->db->query("SELECT * FROM `users` WHERE `ID` = '$id' AND `nick` = '$login' AND `password` = '$pass' LIMIT 1");
 			
 			foreach($query->result_array() as $row)

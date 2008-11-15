@@ -3,7 +3,7 @@ class Feeds extends Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->database();
+        $this->load->library('dbstatements');
     }
 
     function index() {
@@ -12,7 +12,7 @@ class Feeds extends Controller {
     }
 
     function more($id) {
-        $data = $this->db->query('SELECT body FROM content WHERE id = ' . $id)->row();
+        $data = $this->db->query($this->dbstatements->ps_get_feed_body, array($id))->row();
         $this->load->view("feed_body", array('data' => $data));
     }
 
