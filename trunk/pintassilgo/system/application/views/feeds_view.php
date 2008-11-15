@@ -14,7 +14,8 @@
         foreach($data as $row) {
             echo '<h1>'. $row->title . '</h1>';
             echo '<p>'. $row->summary . '</p>';
-            echo 'Escrito por <a href="#">autor</a> em <a href="' . $row->url . '">' . $row->content_date . '</a>';
+            echo '<a href="feeds/more/'. $row->id .'">mais</a> ' .
+            'Escrito por <a href="#">autor</a> em <a href="' . $row->url . '">' . $row->content_date . '</a>';
         }?>
     </body>
 </html>
