@@ -9,7 +9,7 @@ class Users extends Controller {
 		$data['heading'] 	= "Pintassilgo - Ver users";
 		
 		$this->load->database();
-		$query = $this->db->query('SELECT * FROM `users`');
+		$query = $this->db->query('SELECT * FROM `users` WHERE `active` = 1');
 		
 		$data['dados'] = $query->result_array() ;
 		
@@ -53,13 +53,13 @@ class Users extends Controller {
 	function remove_user($id)
 	{
 
-		/* necessita de sistema de permissões, verificação de existencia de id, de id eliminado, etc. */
+		/* verificação de existencia de id e de id eliminado, etc. */
 		$this->load->library('sessions');
 		$perms = $this->sessions->perms();
-		if(is_numeric($id) and $perms == 1)
+		if(is_numeric($id) and $perms == 2)
 		{
 			$this->load->database();
-			$this->db->query('DELETE FROM `users` WHERE `ID` = "'.$id.'" LIMIT 1');
+			$this->db->query('UPDATE `users` SET `active` = "0" WHERE `ID` = "'.$id.'" AND `active` = 1 LIMIT 1');
 			echo "Utilizador removido com sucesso.";
 		}
 		else
@@ -71,7 +71,7 @@ class Users extends Controller {
 	{
 		if(is_numeric($id)) {
 			$this->load->database();
-			$query = $this->db->query('SELECT * FROM `users` WHERE `ID` = "'.$id.'" LIMIT 1');
+			$query = $this->db->query('SELECT * FROM `users` WHERE `ID` = "'.$id.'" AND `active` = 1 LIMIT 1');
 			$data['dados_pessoais'] = $query->result_array();
 			$data['title'] 		= "Pintassilgo - Agregador de Feeds";
 			

@@ -38,7 +38,7 @@ class sessions {
 			$query = $this->db->query("SELECT * FROM `users` WHERE `ID` = '$id' AND `nick` = '$login' AND `password` = '$pass' LIMIT 1");
 			
 			foreach($query->result_array() as $row)
-				$level = $row['perms'];
+				$level = $row['admin'];
 			
 			return $level;
 		}
