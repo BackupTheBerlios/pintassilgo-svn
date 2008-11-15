@@ -1,6 +1,12 @@
 <?php
 class Users extends Controller {
 	
+	public function __construct() {
+        parent::__construct();
+        $this->load->library('dbstatements');
+        $this->load->library('sessions');
+    }
+	
 	function index()
 	{
 		/* trabalhar paginação */
@@ -18,7 +24,7 @@ class Users extends Controller {
 		$config['total_rows'] = $query->num_rows();
 		$config['per_page'] = '20';
 
-		$this->pagination->initialize($config); 
+		$this->pagination->initialize($config);
 
 		$data['pagination'] = $this->pagination->create_links();
 		
@@ -53,11 +59,11 @@ class Users extends Controller {
 	{
 
 		/* verificação de existencia de id e de id eliminado, etc. */
-		$this->load->library('sessions');
+		
 		$perms = $this->sessions->perms();
-		if(is_numeric($id) and $perms == 2)
+		if(is_numeric($id) and $perms == 1)
 		{
-			$this->db->query('UPDATE `users` SET `active` = "0" WHERE `ID` = "'.$id.'" AND `active` = 1 LIMIT 1');
+			$this->db->query($this->dbstatements->ps_update_rem_user, array($id));
 			echo "Utilizador removido com sucesso.";
 		}
 		else
@@ -68,16 +74,15 @@ class Users extends Controller {
 	function perfil($id)
 	{
 		if(is_numeric($id)) {
-			$query = $this->db->query('SELECT * FROM `users` WHERE `ID` = "'.$id.'" AND `active` = 1 LIMIT 1');
-			$data['dados_pessoais'] = $query->result_array();
+			$data['dados_pessoais'] = $this->db->query($this->dbstatements->ps_get_by_userid, array($id))->result_array();
+			foreach($data['dados_pessoais'] as $row)
+				$nick = $row['nick'];
+				
 			$data['title'] 		= "Pintassilgo - Agregador de Feeds";
-			
-			foreach($data['dados_pessoais'] as $row) $nick = $row['nick'];
 			$data['heading'] 	= "Pintassilgo - Perfil de " . $nick;
 			
-			$query = $this->db->query('SELECT * FROM `feed` WHERE `user_id` = "'.$id.'"');
+			$data['dados_feeds'] = $this->db->query($this->dbstatements->ps_get_feed_by_userid, array($id))->result_array();
 			
-			$data['dados_feeds'] = $query->result_array();
 			
 			$this->load->view('perfil', $data);
 		}
