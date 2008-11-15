@@ -16,5 +16,20 @@ class Feeds extends Controller {
         $this->load->view("feed_body", array('data' => $data));
     }
 
+    function submit() {
+        $this->load->helper('url');
+        $this->load->helper('form');
+
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('source_name', 'Título', 'required');
+        $this->form_validation->set_rules('url', 'URL', 'required');
+
+        $success = FALSE;
+        if ($this->form_validation->run() != FALSE) {
+            $success = TRUE;
+        }
+        $this->load->view('submit_feed', array('success' => $success));
+    }
 }
 ?>
