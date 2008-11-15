@@ -5,7 +5,7 @@ class Users extends Controller {
 	{
 		/* trabalhar paginação */
 		
-		$data['title'] 		= "Pintassilgo";
+		$data['title'] 		= "Pintassilgo - Agregador de Feeds";
 		$data['heading'] 	= "Pintassilgo - Ver users";
 		
 		$this->load->database();
@@ -63,6 +63,28 @@ class Users extends Controller {
 		else
 			echo "Tipo de dados inválido";
 	}
+
+	function perfil($id)
+	{
+		if(is_numeric($id)) {
+			$this->load->database();
+			$query = $this->db->query('SELECT * FROM `users` WHERE `ID` = "'.$id.'" LIMIT 1');
+			$data['dados_pessoais'] = $query->result_array();
+			$data['title'] 		= "Pintassilgo - Agregador de Feeds";
+			
+			foreach($data['dados_pessoais'] as $row) $nick = $row['nick'];
+			$data['heading'] 	= "Pintassilgo - Perfil de " . $nick;
+			
+			$query = $this->db->query('SELECT * FROM `feed` WHERE `user_id` = "'.$id.'"');
+			
+			$data['dados_feeds'] = $query->result_array();
+			
+			$this->load->view('perfil', $data);
+		}
+	}
+			
+			
+	
 
 }
 ?>

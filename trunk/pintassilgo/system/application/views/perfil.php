@@ -400,19 +400,39 @@ form {
 <body>
 <h1><? echo $heading; ?></h1>
 
-<div align='center'><table border="0" cellspacing="0" cellpadding="0"><tr>
-<td></td><td width='220px'>Username</td> <td width='220px'>Email</td> <td width='auto'>URL</td> <td>Data Registo</td></tr>
-<tr></tr><tr></tr>
-<? foreach ($dados as $row) {
-	echo "<tr>";
-	echo "<td><a href='index.php/users/remove_user/".$row['ID']."' target='self'>".img('images/no.gif')."</a></td>";
-    echo "<td>" .$row['nick']. "</td>";
-    echo "<td>" .$row['mail']. "</td>";
-    echo "<td>" .$row['url']. "</td>";
-    echo "<td>" .$row['data']. "</td>";
-    echo "</tr>";	
-} ?>
+<div align='center'><table><tr>
+
+<?
+echo "<h2>Dados Pessoais</h2>";
+foreach ($dados_pessoais as $row) {
+
+    echo "Nome de utilizador: ".$row['nick'] ."<br />";
+    echo "E-mail: ". $row['mail'] ."<br />";
+    echo "URL: ".$row['url'] ."<br />";
+    echo "Membro desde: ".$row['data'] ."<br />";
+}
+echo "<h2>Feeds Aprovadas</h2>";
+foreach ($dados_feeds as $row) {
+	echo "URL: " . $row['url'] . "<br />";
+	echo "Descrição: " . $row['description'] . "<br />";
+	echo "Avaliação: " . $row['rating'] . "<br />";
+	
+	echo "<br /><br />";
+}
+echo "<h2>Estatisticas Individuais</h2>";
+//foreach ($estatisticas as $row) {
+	echo "Feeds Preferidas: (módulo em construção)<br />";
+	echo "Interesses: (módulo em construção)<br />";
+	
+//}
+
+echo "<h2>Utilizadores com as mesmas preferências</h2>";
+//foreach ($user_likes as $row) {
+	echo "avatar1   avatar2   avatar3";
+	
+//}
+?>
 </table></div>
-<? echo $pagination; ?>
+
 </body>
 </html>
