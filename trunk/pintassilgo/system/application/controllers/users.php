@@ -52,16 +52,19 @@ class Users extends Controller {
 	
 	function remove_user($id)
 	{
+
 		/* necessita de sistema de permissões, verificação de existencia de id, de id eliminado, etc. */
-		
-		if(is_numeric($id))
+		$this->load->library('sessions');
+		$perms = $this->sessions->perms();
+		if(is_numeric($id) and $perms == 1)
 		{
 			$this->load->database();
 			$this->db->query('DELETE FROM `users` WHERE `ID` = "'.$id.'" LIMIT 1');
 			echo "Utilizador removido com sucesso.";
 		}
 		else
-			echo "Tipo de dados inválido";
+			if(!is_numeric($id)) echo "Tipo de dados inválido.";
+			else echo "Não tem permissões para realizar essa acção.";
 	}
 
 	function perfil($id)
