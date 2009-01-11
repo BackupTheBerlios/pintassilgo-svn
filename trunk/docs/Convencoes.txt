@@ -1,6 +1,3 @@
-NOTA: Este documento é apenas um rascunho que necessita de discussão.
-Nada aqui presente será considerado como definitivo.
-
 ===== Convenções Gerais =====
 As linhas de código não deverão ter mais de 80 caracteres. Embora sejam permitidas 
 linhas maiores, serve o número como referência para que as linhas sejam o mais 
@@ -18,9 +15,15 @@ tenha sido documentado.
     O editor deverá estar configurado para UTF-8 com delimitadores de linha unix, '\n'.
 
 2. Nomenclatura: Ficheiro, classes, funções e variáveis
-    Utilizar camel case e não underscores.
-    Variáveis que representem vectores deverão ser colocadas no plurarl, restantes 
-    deverão ser no singular.
+    O uso de camel case deve ser feito apenas no caso do nome das classes.
+	Os nomes de variáveis devem usar underscores caso seja necessário efectuar
+	separação de nomes. Os nomes devem ser curtos mas significativos.
+	Os nomes das funções seguem o mesmo principio dos nomes das variáveis.
+	Variáveis que representem vectores deverão ser colocadas no plural, restantes 
+    variáveis deverão ser no singular.
+	
+	No caso da nomenclatura recomenda-se a leitura das regras do projecto 
+	CodeIgniter
 
 3. Comentários
     Estilo PHPDoc.
@@ -31,7 +34,7 @@ tenha sido documentado.
     TODO:
     Indicação de tarefa pendente.
     
-    NOTE:
+    NOTA:
     Indicação de nota importante sobre a linha ou bloco de código seguinte.
     
     BUG:
@@ -49,8 +52,8 @@ tenha sido documentado.
     Não devem ser usados overload dos métodos especiais __get e __set
 
 5. Outros
-    O uso de parentisis em operadores ternários fica à descrição do programador.
-    É no entanto aconselhado que seja usados parentisis apenas quando se torna 
+    O uso de parênteses em operadores ternários fica à descrição do programador.
+    É no entanto aconselhado que seja usados parênteses apenas quando se torna 
     mais simples a leitura do código.
     
 ===== Exemplos =====
