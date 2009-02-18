@@ -32,7 +32,21 @@ class Users extends Controller {
 		
 		$this->load->view('users_all', $data);
 	}
+
+
+	/*
 	
+	# DECIDI COMENTAR ESTA PARTE DO CÓDIGO PORQUE ACHEI QUE FUTURAMENTE VAMOS NECESSITAR
+    # DE FAZER LOAD DOS DADOS DE UM UTILIZADOR E PARA ISSO PODIAMOS USAR ESTA CLASSE E TODOS OS METODOS
+    # DE GESTAO DE UTILIZADOR PASSARIAM A UMA CLASSE USERS_CONTROL.
+    #
+    #  EXEMPLO : IMAGINEM QUE PRECISO DE SABER O NOME DE UM UTILIZADOR, ESTARÁ NESTA CLASSE USER
+    #            PARA QUE SERVE ENTAO O METODO ADICIONAR USER SE O USER JÁ ESTÁ REGISTADO ? :S
+    
+    
+    */
+
+	/*
 	function new_user()
 	{
 		/* fazer validações de segurança */
@@ -86,7 +100,30 @@ class Users extends Controller {
 			$this->load->view('perfil', $data);
 		}
 	}
+		
+	*/	
+		
+	function add_Feed( $feed_obj ){
+		
+    /* VERIFY IF THE FEED ALREADY EXIST'S IN THE USER ACCOUNT
+       getParcialURL returns onlye the domain. */ 
+	   $sql = "SELECT url, 
+	           FROM  FEEDS
+			   WHERE url LIKE '%" .  $feed_obj->getParcialURL() . "%'";
 			
+	   $doSQL = $this->db->query($sql);
+	   
+	   if( $doSQL->num_rows() > 0 ){
+			$this->returnMessage = "The URL that you tried to submit is already in your account. Please verify the status of the submission here":
+	   	
+	   	
+	   }
+			
+			
+	        
+	 
+		
+	}	
 			
 	
 
