@@ -1,3 +1,9 @@
+===== Introdução =====
+Este pequeno texto pretende introduzir os conceitos gerais a serem usados pela 
+equipa que trabalhar no projecto Pintassilgo. Servem apenas de introdução rápida
+para e estão longe de estarem completas ou de dispensarem uma leitura sobre as 
+regras que serviram de base a este documento.
+
 ===== Convenções Gerais =====
 As linhas de código não deverão ter mais de 80 caracteres. Embora sejam permitidas 
 linhas maiores, serve o número como referência para que as linhas sejam o mais 
@@ -12,43 +18,50 @@ tenha sido documentado.
 ===== Convenções de Código =====
 1. Geral
     Identação composta por 4 espaços e não tabs.
-    O editor deverá estar configurado para UTF-8 com delimitadores de linha unix, '\n'.
+    O editor deverá estar configurado para UTF-8 com delimitadores de linha unix, 
+    '\n'.
 
 2. Nomenclatura: Ficheiro, classes, funções e variáveis
-    O uso de camel case deve ser feito apenas no caso do nome das classes.
-	Os nomes de variáveis devem usar underscores caso seja necessário efectuar
-	separação de nomes. Os nomes devem ser curtos mas significativos.
-	Os nomes das funções seguem o mesmo principio dos nomes das variáveis.
-	Variáveis que representem vectores deverão ser colocadas no plural, restantes 
-    variáveis deverão ser no singular.
+	Deve ser usado CamelCase em todo o código, quer no nome das classes, 
+	dos métodos ou das varáveis. O uso de underscores deve ser evitado.
 	
-	No caso da nomenclatura recomenda-se a leitura das regras do projecto 
-	CodeIgniter
+	Os nomes devem ser curtos mas significativos.
+	
+	Variáveis que representem vectores deverão ser colocadas no plural, restantes 
+	variáveis deverão ser no singular.
+	
+	Recomenda-se a leitura das regras de codificação de Java, disponível no site 
+	da Sun ou a tradução existente na wiki do P@P, 
+	http://wiki.portugal-a-programar.org/java:convencoes_linguagem.
+	
+	Sugere-se que os nomes de funções, métodos e classes sigam a língua inglesa.
 
 3. Comentários
     Estilo PHPDoc.
         http://manual.phpdoc.org/HTMLSmartyConverter/HandS/phpDocumentor/tutorial_phpDocumentor.quickstart.pkg.html
-    Os comentários especiais indicados abaixo devem ser colocados quando adequado 
-    usando o comentário de linha. Deverão ser curtos e consisos.
+    Os comentários especiais indicados abaixo devem ser colocados quando se usar 
+    o comentário de linha:
     
-    TODO:
-    Indicação de tarefa pendente.
+    	TODO: Indicação de tarefa pendente.
     
-    NOTA:
-    Indicação de nota importante sobre a linha ou bloco de código seguinte.
+	    NOTA: Indicação de nota importante sobre a linha ou bloco de código seguinte.
     
-    BUG:
-    Indicação de erro conhecido. Caso seja possível deve ser indicado o link para 
-    um local de dicussão do erro ou código do relatório de erro do sistema usado 
-    pela equipa.
+    	BUG: Indicação de erro conhecido.
+    	Caso seja possível deve ser indicado o link para um local de 
+    	dicussão do erro ou código do relatório de erro do sistema usado pela equipa.
 
 4. Estrutura do código
     As linhas devem ser quebras por volta da coluna 80. O valor não é restritivo 
     mas deve ser seguido.
+    
     As strings devem ser delimitadas por plicas, '.
+    
     Todas as funções e variáveis devem ter a sua visibilidade explicitamente indicada.
+    
     Os operadores devem conter um espaço antes e um depois.
+    
     Ao serem quebradas, as linhas devem sê-lo após os operadores.
+    
     Não devem ser usados overload dos métodos especiais __get e __set
 
 5. Outros
@@ -56,5 +69,10 @@ tenha sido documentado.
     É no entanto aconselhado que seja usados parênteses apenas quando se torna 
     mais simples a leitura do código.
     
-===== Exemplos =====
-
+    O uso de chavetas em torno do código torna a sua leitura e identificação mais
+    fácil, bem como evita a existência de bugs quando, por exemplo, se pretendia 
+    que duas linhas fossem exectuadas em vez de uma, devido ao uso de identação 
+    esses bugs são muitas vezes, complicados de detectar.
+    Embora não seja obrigatório pela linguagem o uso de chavetas para delimitar
+    blocos de código compostos por uma só linha, o seu uso é vivamente recomendado, 
+    devendo até ser considerado uma exigência.
